@@ -30,3 +30,19 @@ fun question2() {
 	println()
 	println("$userN\n".repeat(nRepeat))
 }
+
+fun question3() {
+	val favSongArtists = arrayOf("Atif Aslam", "Rahat Fateh Ali Khan", "Autopilot", "A Himitsu")
+
+	var userGuess : String?
+	//while loop below
+	do{
+		println("Try to enter an artist's name that exists: ")
+		userGuess = readLine()
+
+		if (userGuess in favSongArtists){
+			println()
+			println("You have successfully guessed the name of your favourite artist!")
+		}
+	} while(!(userGuess in favSongArtists))
+}

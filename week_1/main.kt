@@ -17,6 +17,23 @@ fun main(args: Array<String>) {
     //question2()
     //question3()
     //question4()
+	val car1 = Car("Toyota", "Land Cruiser", 4500, 230, 0)
+    val car2 = Car("Lamborghini", "Aventador", 8000, 390, 0)
+    println(car1)
+	println()
+    println(car2)
+	println()
+    car1.accelerate(20)
+    car2.accelerate(50)
+    println(car1)
+	println()
+    println(car2)
+	println()
+    car1.decelerate(15)
+    car2.decelerate(40)
+    println(car1)
+	println()
+    println(car2)
 }
 
 fun question2() {

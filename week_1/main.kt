@@ -65,3 +65,34 @@ fun question4() {
 	}
 	println("Grade received is $grade.")
 }
+
+class Car(val make: String, val model: String, val engineCapacity: Int, val topSpeed: Int, var currentSpeed: Int) {
+
+    //Attributes
+    /*
+    val make = makeIn
+    val model = modelIn
+    val engineCapacity = engCapacityIn
+    val topSpeed = topSpdIn
+    var currentSpeed :Int
+    */
+
+    fun accelerate(spdIncreaseBy: Int){
+        if(!(currentSpeed == topSpeed)){
+            currentSpeed += spdIncreaseBy
+        } else {
+            currentSpeed = topSpeed
+        }
+    }
+
+    fun decelerate(spdDecreaseBy: Int){
+        if(!(currentSpeed == 0)){
+            currentSpeed -= spdDecreaseBy
+        } else {
+            currentSpeed = 0
+        }
+    }
+    override fun toString(): String {
+        return "Make: $make, Model: $model, Engine Capacity in cc: $engineCapacity, Top Speed: $topSpeed, Current Speed: $currentSpeed"
+    }
+}

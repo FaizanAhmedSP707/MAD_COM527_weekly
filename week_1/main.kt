@@ -34,6 +34,17 @@ fun main(args: Array<String>) {
     println(car1)
 	println()
     println(car2)
+
+    println("\n\n\n")
+    val johann = Employee("Johann Kimmich", "Administrator", 46000.0)
+    val halima = Programmer("Halima Khan", "Front-End Developer", 49000.0, "Java", "Improving on company's front end website functions")
+    val richardson = Manager("Richardson", "CEO", 107000.0, Car("Mercedes", "G63 Wagon", 6500, 300, 0), 340)
+
+    johann.printDetails()
+    println()
+    halima.printDetails()
+    println()
+    richardson.printDetails()
 }
 
 fun question2() {

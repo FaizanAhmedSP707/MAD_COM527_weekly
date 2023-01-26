@@ -10,3 +10,23 @@ fun main(args: Array<String>) {
 }
 */
 
+fun main(args: Array<String>) {
+  //println("Hello world!")
+  //answer all questions in this main function
+
+    //question2()
+    //question3()
+    //question4()
+}
+
+fun question2() {
+	println("Please enter your name:")
+	val userN = readLine()
+	println()
+	println("How many times do you want to repeat the printing of your name? (Please enter a number):")
+	val str1 = readLine()
+	val nRepeat = str1?.toInt() ?: 1
+
+	println()
+	println("$userN\n".repeat(nRepeat))
+}

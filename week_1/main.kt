@@ -46,3 +46,22 @@ fun question3() {
 		}
 	} while(!(userGuess in favSongArtists))
 }
+
+fun question4() {
+	println("Please enter a numerical percentage to calculate the grade achieved: ")
+	
+	val markIn = readLine()
+	// Converting string input to integer input by using the safety access operator
+	val mark = markIn?.toInt() ?: 0
+	
+	val grade = when(mark) {
+		in 70..100 -> "A"
+		in 60..69 -> "B"
+		in 50..59 -> "C"
+		in 40..49 -> "D"
+		in 30..39 -> "E"
+		in 0..29 -> "F"
+		else -> "Error - invalid percentage"
+	}
+	println("Grade received is $grade.")
+}

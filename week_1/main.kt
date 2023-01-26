@@ -113,3 +113,26 @@ class Car(val make: String, val model: String, val engineCapacity: Int, val topS
         return "Make: $make, Model: $model, Engine Capacity in cc: $engineCapacity, Top Speed: $topSpeed, Current Speed: $currentSpeed"
     }
 }
+
+open class Employee(var name: String, var jobTitle: String, var salary: Double) {
+
+    open fun printDetails() {
+        println("Name: $name, Job Title: $jobTitle, Salary: $salary")
+    }
+}
+
+class Programmer(n: String, jt : String, s: Double, var favProgLang: String, var currentProject: String) : Employee(n,jt,s) {
+
+    override fun printDetails() {
+        super.printDetails()
+        println("Favourite Programming Language: $favProgLang, Current Project: $currentProject")
+    }
+}
+
+class Manager(n: String, jt : String, s: Double, var companyCar: Car, var numOfShares: Int) : Employee(n,jt,s) {
+
+    override fun printDetails() {
+        super.printDetails()
+        println("Company car: $companyCar \n\n Number of Shares in the company: $numOfShares")
+    }
+}

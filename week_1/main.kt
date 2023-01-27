@@ -37,7 +37,7 @@ fun main(args: Array<String>) {
 
     println("\n\n\n")
     val johann = Employee("Johann Kimmich", "Administrator", 46000.0)
-    val halima = Programmer("Halima Khan", "Front-End Developer", 49000.0, "Java", "Improving on company's front end website functions")
+    val halima = Programmer("Halima Khan", "Front-End Developer", 49000.0, arrayOf("Python", "Java", "C++"), "Improving on company's front end website functions")
     val richardson = Manager("Richardson", "CEO", 107000.0, Car("Mercedes", "G63 Wagon", 6500, 300, 0), 340)
 
     johann.printDetails()
@@ -132,11 +132,11 @@ open class Employee(var name: String, var jobTitle: String, var salary: Double) 
     }
 }
 
-class Programmer(n: String, jt : String, s: Double, var favProgLang: String, var currentProject: String) : Employee(n,jt,s) {
+class Programmer(n: String, jt : String, s: Double, var favProgLangList: Array<String>, var currentProject: String) : Employee(n,jt,s) {
 
     override fun printDetails() {
         super.printDetails()
-        println("Favourite Programming Language: $favProgLang, Current Project: $currentProject")
+        println("Favourite Programming Language: $favProgLangList, Current Project: $currentProject")
     }
 }
 

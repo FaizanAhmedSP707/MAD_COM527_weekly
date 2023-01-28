@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="@string/hello" />
+</LinearLayout>
+<!--
+Above we're defining the layout of the main activity using an xml layout file.
+To rectify the error shown here in red(line 8) when we first pasted the code, we need to go to
+another xml file that is stored inside the values folder (starting from the res folder to the layout
+folder. The reason why strings in an android app are stored inside the folder 'res/layout/strings.xml'
+is that it allows our app to be translated into different languages. There we'll need to add another
+string with the key name of 'hello'
+
+DEFAULT LAYOUT FILE CREATED WHEN CREATING A NEW EMPTY ACTIVITY
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,3 +33,4 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+-->

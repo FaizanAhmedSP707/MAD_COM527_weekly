@@ -19,7 +19,7 @@
         />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -30,13 +30,6 @@
             android:id="@+id/addBtn"
             android:text="@string/AddButton"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
         <Button
             android:layout_width="wrap_content"
@@ -44,13 +37,6 @@
             android:id="@+id/subtractBtn"
             android:text="@string/subtractButton"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
         <Button
             android:layout_width="wrap_content"
@@ -58,13 +44,6 @@
             android:id="@+id/multiplyBtn"
             android:text="@string/multiplyButton"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
         <Button
             android:layout_width="wrap_content"
@@ -72,12 +51,13 @@
             android:id="@+id/divideBtn"
             android:text="@string/divideButton"
             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAnswer"
+            />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvAnswer"
-        />
 
 </LinearLayout>

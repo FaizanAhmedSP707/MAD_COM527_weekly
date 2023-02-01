@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Main program code below
-        
+        val btn1 = findViewById<Button>(R.id.addBtn)
+        val btn2 = findViewById<Button>(R.id.subtractBtn)
+        val btn3 = findViewById<Button>(R.id.multiplyBtn)
+        val btn4 = findViewById<Button>(R.id.divideBtn)
+        //val numTextField1 = find
     }
 }

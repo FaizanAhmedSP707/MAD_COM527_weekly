@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">InteractivityApp</string>
+    <string name="convertBtn">Convert!</string>
+</resources>

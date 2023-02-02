@@ -21,31 +21,59 @@ class MainActivity : AppCompatActivity() {
         val textViewAnswer = findViewById<TextView>(R.id.tvAnswer)
 
         btn1.setOnClickListener {
-            val number1 = numTextField1.getText().toString().toDouble()
-            val number2 = numTextField2.getText().toString().toDouble()
-            val addAnswer = number1+number2
-            textViewAnswer.setText("Your two numbers added together gives: $addAnswer")
+            if (numTextField1.text.toString().trim() == ""){
+                numTextField1.error = "This field cannot be empty!"
+            } else if(numTextField2.text.toString().trim() == ""){
+                numTextField2.error = "This field cannot be empty!"
+            }
+            else {
+                val number1 = numTextField1.text.toString().toDouble()
+                val number2 = numTextField2.text.toString().toDouble()
+                val addAnswer = number1 + number2
+                textViewAnswer.text = "Your two numbers added together gives: $addAnswer"
+            }
         }
 
         btn2.setOnClickListener {
-            val number1 = numTextField1.getText().toString().toDouble()
-            val number2 = numTextField2.getText().toString().toDouble()
-            val subtractAnswer = number1-number2
-            textViewAnswer.setText("Your two numbers subtracted gives: $subtractAnswer")
+            if (numTextField1.text.toString().trim() == ""){
+                numTextField1.error = "This field cannot be empty!"
+            } else if(numTextField2.text.toString().trim() == ""){
+                numTextField2.error = "This field cannot be empty!"
+            }
+            else {
+                val number1 = numTextField1.text.toString().toDouble()
+                val number2 = numTextField2.text.toString().toDouble()
+                val subtractAnswer = number1 - number2
+                textViewAnswer.text ="Your two numbers subtracted gives: $subtractAnswer"
+            }
         }
 
         btn3.setOnClickListener {
-            val number1 = numTextField1.getText().toString().toDouble()
-            val number2 = numTextField2.getText().toString().toDouble()
-            val multiplyAnswer = number1*number2
-            textViewAnswer.setText("Your two numbers multiplied together gives: $multiplyAnswer")
+            if (numTextField1.text.toString().trim() == ""){
+                numTextField1.error = "This field cannot be empty!"
+            } else if(numTextField2.text.toString().trim() == ""){
+                numTextField2.error = "This field cannot be empty!"
+            }
+            else {
+                val number1 = numTextField1.text.toString().toDouble()
+                val number2 = numTextField2.text.toString().toDouble()
+                val multiplyAnswer = number1 * number2
+                textViewAnswer.text = "Your two numbers multiplied together gives: $multiplyAnswer"
+            }
         }
 
         btn4.setOnClickListener {
-            val number1 = numTextField1.getText().toString().toDouble()
-            val number2 = numTextField2.getText().toString().toDouble()
-            val divisionAnswer = number1 / number2
-            textViewAnswer.setText("Your two numbers divided together give: $divisionAnswer")
+            if (numTextField1.text.toString().trim() == ""){
+                numTextField1.error = "This field cannot be empty!"
+            } else if(numTextField2.text.toString().trim() == ""){
+                numTextField2.error = "This field cannot be empty!"
+            }
+            else {
+                val number1 = numTextField1.text.toString().toDouble()
+                val number2 = numTextField2.text.toString().toDouble()
+                val divisionAnswer = number1 / number2
+                textViewAnswer.text = "Your two numbers divided together give: $divisionAnswer"
+            }
         }
     }
 }

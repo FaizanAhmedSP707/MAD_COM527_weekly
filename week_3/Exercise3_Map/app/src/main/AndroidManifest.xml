@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.unilearning.mapwithcoordinates">
 
+    <!-- Here we need to specify the permissions that the app will use. All permissions have to
+     be declared before the 'application' tag that is auto-generated each time a new project
+     is created. For this exercise, the only permission needed is the Internet permission.-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

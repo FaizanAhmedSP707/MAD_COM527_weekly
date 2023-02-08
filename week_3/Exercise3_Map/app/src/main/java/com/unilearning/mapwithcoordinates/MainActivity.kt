@@ -2,7 +2,6 @@ package com.unilearning.mapwithcoordinates
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceGroup
 import android.preference.PreferenceManager
 import android.widget.EditText
 import android.widget.TextView

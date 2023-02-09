@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MapWithCoordinates</string>
+    <string name="field_1_text">Latitude</string>
+    <string name="field_2_text">Longitude</string>
 </resources>

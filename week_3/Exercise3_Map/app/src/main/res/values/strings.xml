@@ -2,4 +2,5 @@
     <string name="app_name">MapWithCoordinates</string>
     <string name="field_1_text">Latitude</string>
     <string name="field_2_text">Longitude</string>
+    <string name="submitValues">Go!</string>
 </resources>

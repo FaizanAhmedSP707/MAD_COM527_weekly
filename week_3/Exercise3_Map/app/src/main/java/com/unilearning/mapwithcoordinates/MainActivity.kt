@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         map1.controller.setZoom(15.0)
         setContentView(R.layout.activity_main)
-
-        //TODO -> Add the needed button listener that will take input from the EditText fields above
+        
         submitBtn.setOnClickListener {
             if(latitudeField?.text.toString().trim() == ""){
                 latitudeField.error = "Please enter a value for latitude"

@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val submitBtn = findViewById<Button>(R.id.coordValsubmit)
         val map1 = findViewById<MapView>(R.id.mapDisplay)
 
+        map1.controller.setZoom(15.0)
         setContentView(R.layout.activity_main)
 
         //TODO -> Add the needed button listener that will take input from the EditText fields above

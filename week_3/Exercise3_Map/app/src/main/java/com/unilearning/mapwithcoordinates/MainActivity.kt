@@ -28,5 +28,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //TODO -> Add the needed button listener that will take input from the EditText fields above
+        submitBtn.setOnClickListener {
+            if(latitudeField?.text.toString().trim() == ""){
+                latitudeField.error = "Please enter a value for latitude"
+            } else if(longitudeField?.text.toString().trim() == ""){
+                longitudeField.error = "Please enter a value for longitude"
+            } else {
+                val latitudeVal = latitudeField?.text.toString().toDouble()
+                val longitudeVal = longitudeField?.text.toString().toDouble()
+                /*
+                Now we need to create a GeoPoint Object and send it to the map object (MapView element)
+                so that the map updates to display the area with the entered latitude and longitude!
+                */
+                map1.controller.setCenter(GeoPoint(latitudeVal, longitudeVal))
+            }
+        }
     }
 }

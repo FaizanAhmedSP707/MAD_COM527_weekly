@@ -3,6 +3,7 @@ package com.unilearning.mapwithcoordinates
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import org.osmdroid.config.Configuration
@@ -21,8 +22,11 @@ class MainActivity : AppCompatActivity() {
         val longiText = findViewById<TextView>(R.id.textspace2)
         val latitudeField = findViewById<EditText>(R.id.latfield)
         val longitudeField = findViewById<EditText>(R.id.lonfield)
-        val map1 = findViewById<MapView>(R.id.map1)
+        val submitBtn = findViewById<Button>(R.id.coordValsubmit)
+        val map1 = findViewById<MapView>(R.id.mapDisplay)
 
         setContentView(R.layout.activity_main)
+
+        //TODO -> Add the needed button listener that will take input from the EditText fields above
     }
 }

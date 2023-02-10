@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textspace1"
         android:text="@string/field_1_text"
-        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/latfield"
         />
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/latfield"
         android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/textspace1"
         app:layout_constraintRight_toRightOf="parent"
         />
@@ -58,8 +58,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/mapDisplay"
         android:enabled="true"
-        android:clickable="true"
-        android:focusable="true"
         tilesource="Mapnik"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

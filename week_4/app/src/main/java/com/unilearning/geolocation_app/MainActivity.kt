@@ -84,4 +84,14 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(newLoc: Location) {
         Toast.makeText(this, "Location=${newLoc.latitude},${newLoc.longitude}", Toast.LENGTH_LONG).show()
     }
+
+    override fun onProviderDisabled(provider: String) {
+        Toast.makeText(this, "Provider disabled", Toast.LENGTH_LONG).show()
+    }
+
+    // This function was deprecated at API Level 29, but still, it must be included,
+    // otherwise the app will crash on lower-API devices as their API will try and call it.
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle) {
+        //super.onStatusChanged(provider, status, extras)
+    }
 }

@@ -13,6 +13,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.app.AlertDialog
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 
@@ -55,7 +56,12 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode) {
             0 -> {
-                if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // TODO --> Add the function that opens the map in the app
+                } else {
+                    AlertDialog.Builder(this).setPositiveButton("OK", null).
+                            setMessage("App will not be able to update the map efficiently.").show()
+                }
             }
         }
     }

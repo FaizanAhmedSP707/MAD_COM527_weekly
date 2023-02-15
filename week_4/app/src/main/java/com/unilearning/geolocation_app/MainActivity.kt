@@ -17,7 +17,7 @@ import android.app.AlertDialog
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LocationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
             // TODO --> Add the function that opens the map in the app
+            requestLocation()
         } else {
             // If the permissions haven't been granted, request them from the user
             ActivityCompat.requestPermissions(this,
@@ -58,11 +59,29 @@ class MainActivity : AppCompatActivity() {
             0 -> {
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // TODO --> Add the function that opens the map in the app
+                    requestLocation()
                 } else {
                     AlertDialog.Builder(this).setPositiveButton("OK", null).
                             setMessage("App will not be able to update the map efficiently.").show()
                 }
             }
         }
+    }
+
+    fun requestLocation() {
+
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED) {
+
+            //We need to use something here called the Location Manager
+            val mgr = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+            // In the next few lines of code, the third parameter stands for Distance moved, which is of 'Float' data type
+            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,0f,this)
+        }
+    }
+
+    override fun onLocationChanged(newLoc: Location) {
+        Toast.makeText(this, "Location=${newLoc.latitude},${newLoc.longitude}", Toast.LENGTH_LONG).show()
     }
 }

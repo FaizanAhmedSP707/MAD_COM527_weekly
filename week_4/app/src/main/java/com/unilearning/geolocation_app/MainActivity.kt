@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         map1.controller.setCenter(GeoPoint(0.00, 0.00))
 
         /* Now we need to check for what permissions have been granted!*/
+        checkPermissions()
     }
 
     fun checkPermissions() {

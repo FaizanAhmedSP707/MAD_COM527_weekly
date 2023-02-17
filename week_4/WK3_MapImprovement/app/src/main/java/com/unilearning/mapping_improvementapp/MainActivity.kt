@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             val mgr = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
             // In the next few lines of code, the third parameter stands for Distance moved, which is of 'Float' data type
-            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,0f,this)
+            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,8000,0f,this)
         }
     }
 

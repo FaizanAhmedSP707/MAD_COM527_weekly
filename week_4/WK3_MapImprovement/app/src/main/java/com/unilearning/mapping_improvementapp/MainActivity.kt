@@ -34,6 +34,22 @@ class MainActivity : AppCompatActivity(), LocationListener {
         /* Now we need to check for what permissions have been granted!*/
         checkPermissions()
     }
+
+    val markerGestureListener = object:ItemizedIconOverlay.OnItemGestureListener<OverlayItem>
+    {
+        override fun onItemLongPress(i: Int, item:OverlayItem ) : Boolean
+        {
+            Toast.makeText(this@MainActivity, item.snippet, Toast.LENGTH_SHORT).show()
+            return true
+        }
+
+        override fun onItemSingleTapUp(i: Int, item:OverlayItem): Boolean
+        {
+            Toast.makeText(this@MainActivity, item.snippet, Toast.LENGTH_SHORT).show()
+            return true
+        }
+    }
+
     fun checkPermissions() {
         //Check to see if the necessary permission has been granted or not.
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
@@ -85,7 +101,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     override fun onLocationChanged(newLoc: Location) {
         val map2 = findViewById<MapView>(R.id.map1)
-        val overlay_items = ItemizedIconOverlay(this, arrayListOf<OverlayItem>(), null)
+        val overlay_items = ItemizedIconOverlay(this, arrayListOf<OverlayItem>(), markerGestureListener)
         val newMarkItem = OverlayItem("My Location", "My Location", GeoPoint(newLoc.latitude, newLoc.longitude))
         overlay_items.addItem(newMarkItem)
         map2.controller.setCenter(GeoPoint(newLoc.latitude, newLoc.longitude))

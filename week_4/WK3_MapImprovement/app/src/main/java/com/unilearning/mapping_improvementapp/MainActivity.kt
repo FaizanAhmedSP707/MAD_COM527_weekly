@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val map1 = findViewById<MapView>(R.id.map1)
         map1.controller.setZoom(14.0)
         map1.controller.setCenter(GeoPoint(51.05, -0.72))
+
+        /* Now we need to check for what permissions have been granted!*/
+        checkPermissions()
     }
     fun checkPermissions() {
         //Check to see if the necessary permission has been granted or not.

@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
 
     override fun onLocationChanged(newLoc: Location) {
+        val map2 = findViewById<MapView>(R.id.map1)
+        map2.controller.setCenter(GeoPoint(newLoc.latitude, newLoc.longitude))
         Toast.makeText(this, "Location=${newLoc.latitude},${newLoc.longitude}", Toast.LENGTH_LONG).show()
     }
 

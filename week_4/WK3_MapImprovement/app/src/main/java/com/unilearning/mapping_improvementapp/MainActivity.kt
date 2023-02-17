@@ -79,13 +79,17 @@ class MainActivity : AppCompatActivity(), LocationListener {
             val mgr = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
             // In the next few lines of code, the third parameter stands for Distance moved, which is of 'Float' data type
-            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,8000,0f,this)
+            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,0f,this)
         }
     }
 
     override fun onLocationChanged(newLoc: Location) {
         val map2 = findViewById<MapView>(R.id.map1)
+        val overlay_items = ItemizedIconOverlay(this, arrayListOf<OverlayItem>(), null)
+        val newMarkItem = OverlayItem("My Location", "My Location", GeoPoint(newLoc.latitude, newLoc.longitude))
+        overlay_items.addItem(newMarkItem)
         map2.controller.setCenter(GeoPoint(newLoc.latitude, newLoc.longitude))
+        map2.overlays.add(overlay_items)
         Toast.makeText(this, "Location=${newLoc.latitude},${newLoc.longitude}", Toast.LENGTH_LONG).show()
     }
 

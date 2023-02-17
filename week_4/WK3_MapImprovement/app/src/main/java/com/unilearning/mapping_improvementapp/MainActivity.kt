@@ -1,6 +1,7 @@
 package com.unilearning.mapping_improvementapp
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +35,28 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
                 0)
+        }
+    }
+
+    /*
+    This method runs as soon as the user has either granted or denied the requested permission(s).
+    */
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode) {
+            0 -> {
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // TODO --> Add the function that opens the map in the app
+                    requestLocation()
+                } else {
+                    AlertDialog.Builder(this).setPositiveButton("OK", null).
+                    setMessage("App will not be able to update the map efficiently.").show()
+                }
+            }
         }
     }
 }

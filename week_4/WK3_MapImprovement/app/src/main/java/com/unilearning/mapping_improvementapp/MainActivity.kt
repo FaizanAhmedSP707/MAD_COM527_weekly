@@ -2,10 +2,14 @@ package com.unilearning.mapping_improvementapp
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.osmdroid.config.Configuration
@@ -58,5 +62,32 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun requestLocation() {
+
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED) {
+
+            //We need to use something here called the Location Manager
+            val mgr = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+            // In the next few lines of code, the third parameter stands for Distance moved, which is of 'Float' data type
+            mgr.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,0f,this)
+        }
+    }
+
+    override fun onLocationChanged(newLoc: Location) {
+        Toast.makeText(this, "Location=${newLoc.latitude},${newLoc.longitude}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onProviderDisabled(provider: String) {
+        Toast.makeText(this, "Provider disabled", Toast.LENGTH_LONG).show()
+    }
+
+    // This function was deprecated at API Level 29, but still, it must be included,
+    // otherwise the app will crash on lower-API devices as their API will try and call it.
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle) {
+        //super.onStatusChanged(provider, status, extras)
     }
 }

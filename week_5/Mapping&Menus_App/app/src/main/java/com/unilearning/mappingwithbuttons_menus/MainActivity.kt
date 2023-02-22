@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Extract the opentopomap status (true or false) from the intent
                     // and set the map style accordingly
-                    val opentopomap = this.getBooleanExtra("com.menudemo.opentopomap", false)
+                    val opentopomap = this.getBooleanExtra("com.unilearning.mappingwithbuttons_menus.opentopomap", false)
                     val mapAccess = findViewById<MapView>(R.id.map1)
 
                     // Now set the tile source for the map by checking the returned boolean value
@@ -47,5 +47,32 @@ class MainActivity : AppCompatActivity() {
         val map1 = findViewById<MapView>(R.id.map1)
         map1.controller.setZoom(14.0)
         map1.controller.setCenter(GeoPoint(51.05, -1.4))
+    }
+
+    // This is to inflate the menu (Which is basically loading the menu as Kotlin objects into memory
+    override fun onCreateOptionsMenu(menu: Menu) : Boolean {
+        // In Java we would need to use the getter method called 'getMenuInflater()'
+        // In Kotlin, we can use the property access called 'menuInflater' instead.
+        // Refer to the notes from week 2, which covers some aspects of Kotlin properties
+        menuInflater.inflate(R.menu.map_menu, menu)
+        return true
+    }
+
+    // Handle the menu choices
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.choose_map_style -> {
+                // Launch the secondary activity
+
+                // Create the intent
+                val intent = Intent(this, MapChooseActivity::class.java)
+
+                // Create the launcher
+                mapChooseLauncher.launch(intent)
+
+                return true
+            }
+        }
+        return false
     }
 }

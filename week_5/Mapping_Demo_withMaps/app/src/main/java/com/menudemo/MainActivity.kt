@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, MapChooseActivity::class.java)
 
                 // Create the launcher
-
+                mapChooseLauncher.launch(intent)
 
                 return true
             }

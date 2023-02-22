@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         override fun onItemSingleTapUp(i: Int, item:OverlayItem): Boolean
         {
-            Toast.makeText(this@MainActivity, item.snippet, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, item.title, Toast.LENGTH_SHORT).show()
             return true
         }
     }
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(newLoc: Location) {
         val map2 = findViewById<MapView>(R.id.map1)
         val overlay_items = ItemizedIconOverlay(this, arrayListOf<OverlayItem>(), markerGestureListener)
-        val newMarkItem = OverlayItem("My Location", "My Location", GeoPoint(newLoc.latitude, newLoc.longitude))
+        val newMarkItem = OverlayItem("My Location", "Hello, this is a test of adding new markers", GeoPoint(newLoc.latitude, newLoc.longitude))
         overlay_items.addItem(newMarkItem)
         map2.controller.setCenter(GeoPoint(newLoc.latitude, newLoc.longitude))
         map2.overlays.add(overlay_items)

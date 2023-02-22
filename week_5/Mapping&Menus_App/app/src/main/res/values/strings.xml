@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MappingWithButtons_&amp;Menus</string>
     <string name="map_menuText">Choose map style</string>
+    <string name="opentopomapview">Open Topo Map</string>
+    <string name="regularview">Regular Map</string>
 </resources>

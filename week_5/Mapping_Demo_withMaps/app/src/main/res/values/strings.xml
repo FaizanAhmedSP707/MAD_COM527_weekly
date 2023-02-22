@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Week5_MenuApplication</string>
+    <string name="choosemap">Choose map style</string>
+    <string name="opentopomapview">Open Topo Map</string>
+    <string name="regularview">Regular Map</string>
+</resources>

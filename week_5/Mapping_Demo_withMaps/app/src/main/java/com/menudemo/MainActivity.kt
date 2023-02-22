@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 import android.preference.PreferenceManager
 import org.osmdroid.config.Configuration
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
 
                     // Extract the opentopomap status (true or false) from the intent
                     // and set the map style accordingly
+                    val opentopomap = this.getBooleanExtra("com.menudemo.opentopomap", false)
+                    val mapAccess = findViewById<MapView>(R.id.map1)
+
+                    // Now set the tile source for the map by checking the returned boolean value
+                    mapAccess.setTileSource( if(opentopomap) TileSourceFactory.OpenTopo else TileSourceFactory.MAPNIK )
                 }
             }
         }

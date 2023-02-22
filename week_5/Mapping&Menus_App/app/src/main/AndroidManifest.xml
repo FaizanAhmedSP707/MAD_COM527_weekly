@@ -25,6 +25,9 @@
         
         <activity android:name=".MapChooseActivity" android:label="@string/map_menuText">
         </activity>
+
+        <activity android:name=".MapCoordinateValues" android:label="@string/map_coordsText">
+        </activity>
         
     </application>
 

@@ -14,6 +14,29 @@ import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 
 class MainActivity : AppCompatActivity() {
+    val mapChooseLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            /*if (it.resultCode == RESULT_OK) {
+                it.data?.apply {
+                    val opentopomap = this.getBooleanExtra("")
+                }
+            }*/
+            val returnIntent: Intent? = it.data
+            if (it.resultCode == RESULT_OK) {
+                returnIntent?.apply {
+                    // "this" refers to returnIntent and it will NOT be null
+
+                    // Extract the opentopomap status (true or false) from the intent
+                    // and set the map style accordingly
+                    val opentopomap = this.getBooleanExtra("com.menudemo.opentopomap", false)
+                    val mapAccess = findViewById<MapView>(R.id.map1)
+
+                    // Now set the tile source for the map by checking the returned boolean value
+                    mapAccess.setTileSource( if(opentopomap) TileSourceFactory.OpenTopo else TileSourceFactory.MAPNIK )
+                }
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

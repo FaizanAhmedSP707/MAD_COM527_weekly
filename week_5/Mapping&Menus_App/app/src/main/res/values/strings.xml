@@ -3,4 +3,6 @@
     <string name="map_menuText">Choose map style</string>
     <string name="opentopomapview">Open Topo Map</string>
     <string name="regularview">Regular Map</string>
+    <string name="map_coordsText">Enter coordinates for the map</string>
+    <string name="coord_valEntryText">Enter coordinates for the map</string>
 </resources>

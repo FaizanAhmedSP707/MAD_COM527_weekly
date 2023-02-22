@@ -54,6 +54,9 @@ class MainActivity : AppCompatActivity() {
                         if (it.resultCode == RESULT_OK) {
                             returnIntent?.apply {
                                 // "this" refers to returnIntent and it will NOT be null
+
+                                // Extract the opentopomap status (true or false) from the intent
+                                // and set the map style accordingly
                             }
                         }
                     }

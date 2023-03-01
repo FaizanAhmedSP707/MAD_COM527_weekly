@@ -6,21 +6,35 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/latitudeField"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/longitudeField"
         />
 
     <EditText
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/longitudeField"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/latitudeField"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/submitValBtn"
         />
 
     <Button
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/submitValBtn"
+        android:text="@string/submitValues"
+        app:layout_constraintTop_toBottomOf="@id/longitudeField"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

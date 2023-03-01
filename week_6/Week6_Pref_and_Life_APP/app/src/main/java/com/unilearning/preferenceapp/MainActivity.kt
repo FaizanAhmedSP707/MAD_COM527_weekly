@@ -12,6 +12,7 @@ import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     val mapChooseLauncher =
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.d("lifecycle", "onCreate()")
 
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
 
@@ -73,5 +74,32 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // The first argument is for the log's tag, the second argument is the message
+        Log.d("lifecycle", "onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Here is actually where you would read up any preferences that you set for your android app
+        Log.d("lifecycle", "onResume()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("lifecycle", "onStop()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("lifecycle", "onPause()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("lifecycle", "onDestroy()")
     }
 }

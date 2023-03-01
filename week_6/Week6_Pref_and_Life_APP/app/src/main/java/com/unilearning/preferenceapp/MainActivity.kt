@@ -15,6 +15,7 @@ import org.osmdroid.views.MapView
 import android.util.Log
 
 class MainActivity : AppCompatActivity() {
+    lateinit var map1 : MapView
     val mapChooseLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             /*if (it.resultCode == RESULT_OK) {
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
 
         setContentView(R.layout.activity_main)
-        val map1 = findViewById<MapView>(R.id.map1)
+        map1 = findViewById<MapView>(R.id.map1)
         map1.controller.setZoom(14.0)
         map1.controller.setCenter(GeoPoint(51.05, -1.4))
     }

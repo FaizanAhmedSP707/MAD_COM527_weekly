@@ -24,7 +24,7 @@ class MapChooseActivity : AppCompatActivity() {
 
     fun sendBackMapChoice(opentopo: Boolean) {
         val intent = Intent()
-        val bundle = bundleOf("com.menudemo.opentopomap" to opentopo)
+        val bundle = bundleOf("com.unilearning.mappingwithbuttons_menus.opentopomap" to opentopo)
         intent.putExtras(bundle)
         setResult(RESULT_OK, intent)
         finish()

@@ -10,4 +10,9 @@
         android:defaultValue="-1.4"
         android:title="Longitude"
         android:summary="Longitude to show the map at initially." />
+    <EditTextPreference
+        android:key="zoomLv"
+        android:defaultValue="14.0"
+        android:title="Default Zoom Level"
+        android:summary="Change the default zoom level for the app." />
 </PreferenceScreen>

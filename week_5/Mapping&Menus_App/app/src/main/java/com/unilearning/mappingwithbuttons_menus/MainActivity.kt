@@ -37,6 +37,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    val mapCoordLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+
+            val returnedIntent: Intent? = it.data
+            if (it.resultCode == RESULT_OK) {
+                returnedIntent?.apply {
+                    // "this" refers to returnedIntent and it will NOT BE null
+
+                    // Now, extract the values returned from the returned intent
+                    val userLatitude = this.getDoubleExtra("com.unilearning.mappingwithbuttons_menus.latitude", 0.00)
+                    val userLongitude = this.getDoubleExtra("com.unilearning.mappingwithbuttons_menus.latitude", 0.00)
+                    val map2 = findViewById<MapView>(R.id.map1)
+
+                    // Set the map coordinates to the values sent by the user
+                    map2.controller.setCenter(GeoPoint(userLatitude, userLongitude))
+                }
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

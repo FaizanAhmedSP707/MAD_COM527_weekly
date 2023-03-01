@@ -37,7 +37,8 @@ class MapCoordinateValues: AppCompatActivity() {
 
     fun sendBackMapValues(lat_val: Double, long_val: Double) {
         val intent = Intent()
-        val bundle = bundleOf("com.unilearning.mappingwithbuttons_menus.latitude" to lat_val, "com.unilearning.mappingwithbuttons_menus.longitude" to long_val)
+        val bundle = bundleOf("com.unilearning.mappingwithbuttons_menus.latitude" to lat_val,
+                                    "com.unilearning.mappingwithbuttons_menus.longitude" to long_val)
         intent.putExtras(bundle)
         setResult(RESULT_OK, intent)
         finish()

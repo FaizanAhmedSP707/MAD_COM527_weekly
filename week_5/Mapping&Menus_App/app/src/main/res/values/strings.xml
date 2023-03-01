@@ -5,4 +5,5 @@
     <string name="regularview">Regular Map</string>
     <string name="map_coordsText">Enter coordinates for the map</string>
     <string name="coord_valEntryText">Enter coordinates for the map</string>
+    <string name="submitValues">Submit Coordinates</string>
 </resources>

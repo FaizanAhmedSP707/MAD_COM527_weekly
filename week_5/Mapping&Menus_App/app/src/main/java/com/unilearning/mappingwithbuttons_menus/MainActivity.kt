@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Now, extract the values returned from the returned intent
                     val userLatitude = this.getDoubleExtra("com.unilearning.mappingwithbuttons_menus.latitude", 0.00)
-                    val userLongitude = this.getDoubleExtra("com.unilearning.mappingwithbuttons_menus.latitude", 0.00)
+                    val userLongitude = this.getDoubleExtra("com.unilearning.mappingwithbuttons_menus.longitude", 0.00)
                     val map2 = findViewById<MapView>(R.id.map1)
 
                     // Set the map coordinates to the values sent by the user

@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Set the map coordinates to the values sent by the user
                     map2.controller.setCenter(GeoPoint(userLatitude, userLongitude))
+                    map2.controller.setZoom(14.0)
                 }
             }
         }

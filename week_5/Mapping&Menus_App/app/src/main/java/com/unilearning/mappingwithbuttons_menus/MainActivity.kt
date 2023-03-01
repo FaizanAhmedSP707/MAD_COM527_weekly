@@ -72,6 +72,16 @@ class MainActivity : AppCompatActivity() {
 
                 return true
             }
+            R.id.enterMapCoords -> {
+                // Launch the third activity
+
+                // Create the intent to launch the second activity
+                val intent = Intent(this, MapCoordinateValues::class.java)
+
+                // call the launcher
+                mapCoordLauncher.launch(intent)
+                return true
+            }
         }
         return false
     }

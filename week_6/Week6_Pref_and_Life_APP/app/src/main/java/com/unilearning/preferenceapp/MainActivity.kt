@@ -73,6 +73,13 @@ class MainActivity : AppCompatActivity() {
 
                 return true
             }
+            R.id.launchprefs -> {
+                // Launch the preferences activity here, as there is no need to send back data to the main app.
+                val prefIntent = Intent(this, PreferenceActivity::class.java)
+                startActivity(prefIntent)
+
+                return true
+            }
         }
         return false
     }

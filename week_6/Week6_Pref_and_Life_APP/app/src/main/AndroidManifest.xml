@@ -22,6 +22,9 @@
         </activity>
         <activity android:name=".MapChooseActivity" android:label="@string/choosemap">
         </activity>
+
+        <activity android:name=".PreferenceActivity" android:label="@string/setPrefs">
+        </activity>
     </application>
 
 </manifest>

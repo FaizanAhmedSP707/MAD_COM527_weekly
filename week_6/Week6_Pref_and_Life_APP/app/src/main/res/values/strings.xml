@@ -3,4 +3,5 @@
     <string name="choosemap">Choose map style</string>
     <string name="opentopomapview">Open Topo Map</string>
     <string name="regularview">Regular Map</string>
+    <string name="setPrefs">Choose preferences</string>
 </resources>

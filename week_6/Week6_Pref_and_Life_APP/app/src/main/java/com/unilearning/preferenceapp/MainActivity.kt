@@ -87,6 +87,15 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         // Here is actually where you would read up any preferences that you set for your android app
         Log.d("lifecycle", "onResume()")
+        val prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val zoomlevelSet = prefs.getString("zoomLv", "14.0")?.toDouble() ?: 14.0
+        val latSetting = prefs.getString("lat", "50.9")?.toDouble() ?: 50.9
+        val lonSetting = prefs.getString("lon", "-1.4")?.toDouble() ?: -1.4
+
+        // Do something with these preferences
+        map1 = findViewById(R.id.map1)
+        map1.controller.setCenter(GeoPoint(latSetting, lonSetting))
+        map1.controller.setZoom(zoomlevelSet)
     }
 
     override fun onStop() {

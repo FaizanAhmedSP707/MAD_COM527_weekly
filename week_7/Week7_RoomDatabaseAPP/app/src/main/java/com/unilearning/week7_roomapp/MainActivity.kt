@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity() {
                     setartist.setText(this.artist)
                     setyear.setText("${this.year}") //Causes an error if using 'this.year' --> find out why
                 }
+                if(returnSong != null) {
+                    Toast.makeText(this@MainActivity, "Search operation successful!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "Song with entered ID doesn't exist!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

@@ -26,22 +26,22 @@ class MainActivity : AppCompatActivity() {
             //  as the activity is its' parent)
             lifecycleScope.launch {
                 // Read in the artist, title and year from the UI
-                val id = findViewById<EditText>(R.id.etId).text.toString().toLong()
+                val id = findViewById<EditText>(R.id.etId)
                 val title = findViewById<EditText>(R.id.etTitle).text.toString()
                 val artist = findViewById<EditText>(R.id.etArtist).text.toString()
                 val year = findViewById<EditText>(R.id.etYear).text.toString().toInt()
-                var song = Song(id, title, artist, year)
+                val song = Song(0, title, artist, year)
 
                 // Declare a variable to hold the ID allocated to the new record (this is for
                 var insertID = 0L
 
-
                 // Switch to the background context to do the query
                 withContext(Dispatchers.IO) {
-
+                    insertID = db.songDao().addSong(song)
                 }
 
                 // Update the ID edit text to contain the insertID
+                id.setText("$insertID")
             }
         }
 

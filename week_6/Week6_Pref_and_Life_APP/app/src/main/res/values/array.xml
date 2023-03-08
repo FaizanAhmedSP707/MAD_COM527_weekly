@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mapSelector">
+        <item>Regular Map</item>
+        <item>OpenTopo Map</item>
+    </string-array>
+
+    <string-array name="mapSelectorValues">
+        <item>MAPNIK</item>
+        <item>OpenTop</item>
+    </string-array>
+</resources>

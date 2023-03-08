@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 returnSong?.apply {
                     etTitle.setText(this.title)
                     setartist.setText(this.artist)
-                    setyear.setText("$returnSong.year") //Causes an error if using 'this.year' --> find out why
+                    setyear.setText("${this.year}") //Causes an error if using 'this.year' --> find out why
                 }
             }
         }
@@ -80,11 +81,29 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        /*
-        findViewById<Button>(R.id.btnDelete).setOnClickListener {
 
+        findViewById<Button>(R.id.btnDelete).setOnClickListener {
+            lifecycleScope.launch {
+                val checkid = findViewById<EditText>(R.id.etId).text.toString().toLong()
+
+
+                //this@MainActivity
+                var rowsChanged = 0
+
+                withContext(Dispatchers.IO) {
+                    // Create the song object here, then call the appropriate method from the DAO
+                    val songobj = Song(checkid, "", "", 0)
+                    rowsChanged = db.songDao().deleteSong(songobj)
+
+                }
+                // Check the value returned and assigned to the variable above, and output a message if unsuccessful
+                if(rowsChanged == 0) {
+                    Toast.makeText(this@MainActivity, "Song with entered ID doesn't exist!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "Delete operation successful!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
-         */
 
     }
 }

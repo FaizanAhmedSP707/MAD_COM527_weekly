@@ -15,4 +15,10 @@
         android:defaultValue="14.0"
         android:title="Default Zoom Level"
         android:summary="Change the default zoom level for the app." />
+    <ListPreference
+        android:key="mapStyle"
+        android:title="Choose a map style"
+        android:summary="Select a map style to display the map in."
+        android:entries="@array/mapSelector"
+        android:entryValues="@array/mapSelectorValues" />
 </PreferenceScreen>

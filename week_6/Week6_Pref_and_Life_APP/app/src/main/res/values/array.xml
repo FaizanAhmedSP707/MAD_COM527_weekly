@@ -7,6 +7,6 @@
 
     <string-array name="mapSelectorValues">
         <item>MAPNIK</item>
-        <item>OpenTop</item>
+        <item>OpenTopo</item>
     </string-array>
 </resources>

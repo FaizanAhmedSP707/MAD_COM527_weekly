@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val db = HittasticDatabase.getDatabase(application)
         // Coroutines
         // A coroutine is a separate process which runs in the background,
         // independent of the main process
@@ -25,14 +26,22 @@ class MainActivity : AppCompatActivity() {
             //  as the activity is its' parent)
             lifecycleScope.launch {
                 // Read in the artist, title and year from the UI
+                val id = findViewById<EditText>(R.id.etId).text.toString()
                 val title = findViewById<EditText>(R.id.etTitle).text.toString()
                 val artist = findViewById<EditText>(R.id.etArtist).text.toString()
                 val year = findViewById<EditText>(R.id.etYear).text.toString().toInt()
+                var song : Song?
+
+                // Declare a variable to hold the ID allocated to the new record (this is for
+                var insertID = 0L
+
 
                 // Switch to the background context to do the query
                 withContext(Dispatchers.IO) {
 
                 }
+
+                // Update the ID edit text to contain the insertID
             }
         }
 

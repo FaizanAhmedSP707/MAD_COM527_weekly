@@ -44,18 +44,19 @@ class MainActivity : AppCompatActivity() {
                 id.setText("$insertID")
             }
         }
-
+        /*
         findViewById<Button>(R.id.btnSearch).setOnClickListener {
 
         }
 
-        findViewById<Button>(R.id.btnCreate).setOnClickListener {
+        findViewById<Button>(R.id.btnUpdate).setOnClickListener {
 
         }
 
-        findViewById<Button>(R.id.btnCreate).setOnClickListener {
+        findViewById<Button>(R.id.btnDelete).setOnClickListener {
 
         }
+         */
 
     }
 }

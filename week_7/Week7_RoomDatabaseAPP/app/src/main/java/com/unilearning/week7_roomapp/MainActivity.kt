@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Update the ID edit text to contain the insertID
                 id.setText("$insertID")
+                Toast.makeText(this@MainActivity, "Song added, ID of song shown above!", Toast.LENGTH_SHORT).show()
             }
         }
 

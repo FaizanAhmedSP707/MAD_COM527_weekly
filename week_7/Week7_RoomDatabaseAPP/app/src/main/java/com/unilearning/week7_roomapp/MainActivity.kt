@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 returnSong?.apply {
                     etTitle.setText(this.title)
                     setartist.setText(this.artist)
-                    setyear.setText(this.year)
+                    setyear.setText("$returnSong.year") //Causes an error if using 'this.year' --> find out why
                 }
             }
         }

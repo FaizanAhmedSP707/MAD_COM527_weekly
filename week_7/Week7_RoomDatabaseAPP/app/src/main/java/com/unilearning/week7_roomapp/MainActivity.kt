@@ -79,6 +79,11 @@ class MainActivity : AppCompatActivity() {
                 withContext(Dispatchers.IO) {
                     rowsAffected = db.songDao().updateSong(songIn)
                 }
+                if(rowsAffected == 0){
+                    Toast.makeText(this@MainActivity, "Song with entered ID doesn't exist!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "Update operation successful!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

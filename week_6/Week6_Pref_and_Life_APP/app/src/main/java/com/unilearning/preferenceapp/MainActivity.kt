@@ -13,6 +13,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import android.util.Log
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit var map1 : MapView
@@ -31,10 +32,9 @@ class MainActivity : AppCompatActivity() {
                     // Extract the opentopomap status (true or false) from the intent
                     // and set the map style accordingly
                     val opentopomap = this.getBooleanExtra("com.unilearning.preferenceapp.opentopomap", false)
-                    val mapAccess = findViewById<MapView>(R.id.map1)
 
                     // Now set the tile source for the map by checking the returned boolean value
-                    mapAccess.setTileSource( if(opentopomap) TileSourceFactory.OpenTopo else TileSourceFactory.MAPNIK )
+                    map1.setTileSource( if(opentopomap) TileSourceFactory.OpenTopo else TileSourceFactory.MAPNIK )
                 }
             }
         }
@@ -98,12 +98,13 @@ class MainActivity : AppCompatActivity() {
         val zoomlevelSet = prefs.getString("zoomLv", "14.0")?.toDouble() ?: 14.0
         val latSetting = prefs.getString("lat", "50.9")?.toDouble() ?: 50.9
         val lonSetting = prefs.getString("lon", "-1.4")?.toDouble() ?: -1.4
-        val mapStyle = prefs.getString("mapStyle", "MAPNIK") ?: "NONE"
+        val mapStyle = prefs.getString("mapStyle", "MAPNIK") ?: "MAPNIK"
 
         // Do something with these preferences
-        map1 = findViewById(R.id.map1)
+
         map1.controller.setCenter(GeoPoint(latSetting, lonSetting))
         map1.controller.setZoom(zoomlevelSet)
+        Toast.makeText(this, mapStyle, Toast.LENGTH_SHORT).show()
         if(mapStyle == "MAPNIK"){
             map1.setTileSource(TileSourceFactory.MAPNIK)
         } else if(mapStyle == "OpenTopo"){

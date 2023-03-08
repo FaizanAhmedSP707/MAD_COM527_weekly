@@ -98,11 +98,17 @@ class MainActivity : AppCompatActivity() {
         val zoomlevelSet = prefs.getString("zoomLv", "14.0")?.toDouble() ?: 14.0
         val latSetting = prefs.getString("lat", "50.9")?.toDouble() ?: 50.9
         val lonSetting = prefs.getString("lon", "-1.4")?.toDouble() ?: -1.4
+        val mapStyle = prefs.getString("mapStyle", "MAPNIK") ?: "NONE"
 
         // Do something with these preferences
         map1 = findViewById(R.id.map1)
         map1.controller.setCenter(GeoPoint(latSetting, lonSetting))
         map1.controller.setZoom(zoomlevelSet)
+        if(mapStyle == "MAPNIK"){
+            map1.setTileSource(TileSourceFactory.MAPNIK)
+        } else if(mapStyle == "OpenTopo"){
+            map1.setTileSource(TileSourceFactory.OpenTopo)
+        }
     }
 
     override fun onStop() {

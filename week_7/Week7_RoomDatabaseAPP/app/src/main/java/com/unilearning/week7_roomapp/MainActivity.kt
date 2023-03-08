@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         // A coroutine is a separate process which runs in the background,
         // independent of the main process
 
+        val etTitle = findViewById<EditText>(R.id.etTitle)
         // Find our add button
         findViewById<Button>(R.id.btnCreate).setOnClickListener {
             // the code 'lifecycleScope.launch' launches a coroutine in the scope of the activity lifecycle
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 // Read in the artist, title and year from the UI
                 val id = findViewById<EditText>(R.id.etId)
-                val title = findViewById<EditText>(R.id.etTitle).text.toString()
+                val title = etTitle.text.toString()
                 val artist = findViewById<EditText>(R.id.etArtist).text.toString()
                 val year = findViewById<EditText>(R.id.etYear).text.toString().toInt()
                 val song = Song(0, title, artist, year)
@@ -44,15 +45,42 @@ class MainActivity : AppCompatActivity() {
                 id.setText("$insertID")
             }
         }
-        /*
-        findViewById<Button>(R.id.btnSearch).setOnClickListener {
 
+        findViewById<Button>(R.id.btnSearch).setOnClickListener {
+            lifecycleScope.launch {
+                val id = findViewById<EditText>(R.id.etId).text.toString().toLong()
+
+                val setartist = findViewById<EditText>(R.id.etArtist)
+                val setyear = findViewById<EditText>(R.id.etYear)
+                var returnSong : Song? = null
+
+                withContext(Dispatchers.IO) {
+                    returnSong = db.songDao().getSongById(id)
+                }
+                returnSong?.apply {
+                    etTitle.setText(this.title)
+                    setartist.setText(this.artist)
+                    setyear.setText(this.year)
+                }
+            }
         }
 
         findViewById<Button>(R.id.btnUpdate).setOnClickListener {
+            lifecycleScope.launch {
+                val id = findViewById<EditText>(R.id.etId).text.toString().toLong()
+                val titleCHNG = findViewById<EditText>(R.id.etTitle).text.toString()
+                val artistCHNG = findViewById<EditText>(R.id.etArtist).text.toString()
+                val yearCHNG = findViewById<EditText>(R.id.etYear).text.toString().toInt()
+                val songIn = Song(id, titleCHNG, artistCHNG, yearCHNG)
 
+                var rowsAffected = 0
+
+                withContext(Dispatchers.IO) {
+                    rowsAffected = db.songDao().updateSong(songIn)
+                }
+            }
         }
-
+        /*
         findViewById<Button>(R.id.btnDelete).setOnClickListener {
 
         }

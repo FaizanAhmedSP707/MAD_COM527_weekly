@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JSON_WebCommunication</string>
+    <string name="artistSearchBtnText">Find songs by Artist</string>
 </resources>

@@ -2,6 +2,7 @@ package com.unilearning.json_webcommunication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val nameEntry = findViewById<EditText>(R.id.songArtistSearchName)
         val songSearchBtn = findViewById<Button>(R.id.searchSongArtistBtn)
         val resultView = findViewById<TextView>(R.id.webTextDisplay)
-
+        resultView.movementMethod = ScrollingMovementMethod()
         // Button listener that will send requests to the server
         songSearchBtn.setOnClickListener {
 

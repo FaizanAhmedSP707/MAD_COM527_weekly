@@ -36,12 +36,28 @@ class MainActivity : AppCompatActivity() {
                 val artistName = nameEntry.text.toString()
 
                 val url = "http://192.168.212.222:3000/artist/${artistName}"
-                url.httpGet().response { request, response, result ->
+                url.httpGet().responseObject<List<Song>> { request, response, result ->
 
                     when(result) {
                         is Result.Success -> {
                             // Parsing not done right now, we'll just be displaying raw data
-                            resultView.text = result.get().decodeToString()
+                            //resultView.text = result.get().decodeToString()
+
+                            // Parsing done using GSON
+                            val displaytext = result.get().map {
+                                "${it.title} by ${it.artist}," +
+                                        "ID: ${it.ID}," +
+                                        "Day: ${it.day}," +
+                                        "Month: ${it.month}," +
+                                        "Year: ${it.year}," +
+                                        "Chart: ${it.chart}," +
+                                        "Likes: ${it.likes}," +
+                                        "Downloads: ${it.downloads}," +
+                                        "Quantity: ${it.quantity}," +
+                                        "Review: ${it.review}"
+                            }.joinToString("\n")
+                            // Set the text to the TextView
+                            resultView.text = displaytext
                         }
 
                         is Result.Failure -> {
@@ -57,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 data class Song (
     val title: String,
-    val artist: String, 
+    val artist: String,
     val day: Int,
     val month: String,
     val year: Int,

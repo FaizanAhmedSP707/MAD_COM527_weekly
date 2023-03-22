@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 // The EditText isn't empty, so get the value and then send the request to the server
                 val artistName = nameEntry.text.toString()
 
-                val url = "http://192.168.0.103:3000/artist/${artistName}"
+                val url = "http://192.168.212.222:3000/artist/${artistName}"
                 url.httpGet().response { request, response, result ->
 
                     when(result) {
@@ -54,3 +54,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+data class Song (
+    val title: String,
+    val artist: String, 
+    val day: Int,
+    val month: String,
+    val year: Int,
+    val chart: Int,
+    val likes: Int,
+    val downloads: Int,
+    val ID: Int,
+    val review: String,
+    val quantity: Int
+)

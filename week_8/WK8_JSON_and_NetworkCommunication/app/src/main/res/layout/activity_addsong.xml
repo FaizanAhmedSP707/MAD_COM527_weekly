@@ -28,6 +28,8 @@
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="@string/addSongBtnText"
+        android:id="@+id/addSongBtn"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

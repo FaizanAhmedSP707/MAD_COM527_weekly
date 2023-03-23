@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 // The EditText isn't empty, so get the value and then send the request to the server
                 val artistName = nameEntry.text.toString()
 
-                val url = "http://192.168.227.222:3000/artist/${artistName}"
+                val url = "http://192.168.243.222:3000/artist/${artistName}"
                 url.httpGet().responseObject<List<Song>> { request, response, result ->
 
                     when(result) {
@@ -73,6 +73,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.addsongActivity -> {
+                val intent = Intent(this, AddNewSongActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+        }
+        return false
     }
 }
 

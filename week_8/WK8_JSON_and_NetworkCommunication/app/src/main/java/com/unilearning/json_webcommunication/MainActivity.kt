@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 // The EditText isn't empty, so get the value and then send the request to the server
                 val artistName = nameEntry.text.toString()
 
-                val url = "http://192.168.212.222:3000/artist/${artistName}"
+                val url = "http://192.168.227.222:3000/artist/${artistName}"
                 url.httpGet().responseObject<List<Song>> { request, response, result ->
 
                     when(result) {
@@ -45,16 +45,16 @@ class MainActivity : AppCompatActivity() {
 
                             // Parsing done using GSON
                             val displaytext = result.get().map {
-                                "${it.title} by ${it.artist}," +
-                                        "ID: ${it.ID}," +
-                                        "Day: ${it.day}," +
-                                        "Month: ${it.month}," +
-                                        "Year: ${it.year}," +
-                                        "Chart: ${it.chart}," +
-                                        "Likes: ${it.likes}," +
-                                        "Downloads: ${it.downloads}," +
-                                        "Quantity: ${it.quantity}," +
-                                        "Review: ${it.review}"
+                                "${it.title} by ${it.artist}, " +
+                                        "ID: ${it.ID}, \n" +
+                                        "Day: ${it.day}, " +
+                                        "Month: ${it.month}, " +
+                                        "Year: ${it.year}, \n" +
+                                        "Chart: ${it.chart}, " +
+                                        "Likes: ${it.likes}, " +
+                                        "Downloads: ${it.downloads}, " +
+                                        "Quantity: ${it.quantity}, \n" +
+                                        "Review: ${it.review}" + "\n"
                             }.joinToString("\n")
                             // Set the text to the TextView
                             resultView.text = displaytext

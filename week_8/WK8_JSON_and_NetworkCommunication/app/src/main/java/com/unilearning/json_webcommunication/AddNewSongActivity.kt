@@ -36,6 +36,21 @@ class AddNewSongActivity : AppCompatActivity() {
                 val songyear = songYearField.text.toString().toInt()
 
                 // Do the web stuff here: setting the URL and sending the POST request
+                val url = "http://10.0.2.2:3000/song/create"
+                val httppostData = listOf("title" to songtitle, "artist" to songartist, "year" to songyear)
+                url.httpPost(httppostData).response {request, response, result ->
+                    when(result) {
+                        is Result.Success -> {
+                            // If the POST request is successful
+                            Toast.makeText(this, result.get().decodeToString(), Toast.LENGTH_LONG).show()
+                        }
+
+                        is Result.Failure -> {
+                            // If the POST request failed
+                            Toast.makeText(this, result.error.message, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }
         }
     }
